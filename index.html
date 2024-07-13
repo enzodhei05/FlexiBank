@@ -1,0 +1,331 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexiBank Accueil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.6.8/build/spline-viewer.js"></script>
+</head>
+
+<body>
+    <div id="cookie-banner"
+        style="display: flex; align-items: center; justify-content: center; background-color: white; color: black; padding: 20px; text-align: center; position: fixed; bottom: 0; width: 100%; z-index: 1001; font-weight: bold;">
+        Nous utilisons des cookies pour améliorer votre expérience.
+        <button id="accept-cookies"
+            style="margin-left: 20px; background-color: white; color: black; border: 1px solid black; padding: 10px; cursor: pointer;">J'accepte</button>
+        <button id="refuse-cookies"
+            style="margin-left: 20px; background-color: white; color: black; border: 1px solid black; padding: 10px; cursor: pointer;">Je
+            refuse</button>
+        <button id="manage-cookies"
+            style="margin-left: 20px; background-color: white; color: black; border: 1px solid black; padding: 10px; cursor: pointer;">Gérer
+            les cookies</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <div class="FlexiBankAnimation">
+                <h1>FlexiBank</h1>
+            </div>
+        </div>
+        <div class="navbar-icons">
+            <a href="/FlexiBank/site01/FlexiBank/User/connexion.html">Login</a>
+            <a href="/FlexiBank/site01/FlexiBank/User/inscription.html"
+                style="padding: 15px;background-color: black;color:white; border-radius:35px;">Sign up</a>
+        </div>
+    </nav>
+
+    <div id="chat-bubble"
+        style="position: fixed; bottom: 20px; right: 20px; background-color: white; color: white; border-radius: 50%; width: 70px; height: 70px; text-align: center; line-height: 60px; font-size: 30px; cursor: pointer; z-index: 1002;">
+        <img src="image/chat-bubble.png" alt="Chat Icon"
+            style="width: 100%; height: 100%; border-radius: 50%;margin-top: 0px; ">
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <h1>Bienvenue chez FlexiBank</h1>
+        <p>Votre banque en ligne de confiance</p>
+        <button><a href="configuration.html" style="text-decoration: none;color: black;">Commencer
+                maintenant</a></button>
+    </header>
+
+    <!-- Spline Viewer Section -->
+    <div class="spline-container1">
+    </div>
+    <div class="test">
+        <div class="text_spline2"><strong>Gestion facile de votre porte-feuille via notre app mobile</strong></div>
+    </div>
+    <div class="spline-container3">
+        <spline-viewer url="https://prod.spline.design/IzpDGovT5cvnDcmd/scene.splinecode"></spline-viewer>
+        <div class="text_spline3"><strong>Investissez dans différentes actions</strong></div>
+        <div class="text2_spline3">Investissez sans commission dans des sociétés mondiales pour seulement 1 €.***
+            Capital à risque. La valeur des investissements peut augmenter comme diminuer. Les conditions générales
+            s'appliquent.</div>
+        <button class="explore-button"><strong>Explorer les actions</strong></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="newsletter">
+                <h1>ABONNEZ-VOUS À NOTRE NEWSLETTER</h1>
+                <form id="newsletter-form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="Entrez votre adresse e-mail"
+                        style="background-color:black;color: white;" required>
+                    <button type="submit" style="background-color:black; color:white;">S'abonner</button>
+                </form>
+            </div>
+            <div id="confirmation-message"
+                style="display: none; background-color: black; color: white; padding: 20px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 1001; font-weight: bold;">
+                Merci de vous être abonné à notre newsletter !
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="colonnes">
+                <a href="/FlexiBank/site01/FlexiBank/footer/conditions.html">CONDITIONS D'UTILISATION</a>
+                <hr>
+                <a href="/FlexiBank/site01/FlexiBank/footer/politique.html">POLITIQUE DE CONFIDENTIALITE</a>
+                <hr>
+                <a href="/FlexiBank/site01/FlexiBank/footer/cookie.html">COOKIE POLICY</a>
+                <hr>
+                <a href="/FlexiBank/site01/FlexiBank/footer/aide.html">CENTRE D'AIDE</a>
+            </div>
+            <br>
+            <div class="copyright">
+                <p>© 2024 FlexiBank, Inc. Tous droits réservés</p>
+                <br>
+                <a class="icon"><i class="fas fa-map-marker-alt"> France</i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('accept-cookies').addEventListener('click', function () {
+            setCookie('cookies_accepted', 'true', 365);
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+
+        document.getElementById('refuse-cookies').addEventListener('click', function () {
+            setCookie('cookies_accepted', 'false', 365);
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+
+        document.getElementById('manage-cookies').addEventListener('click', function () {
+            const gestionPage = document.createElement('div');
+            gestionPage.className = 'gestion-cookies';
+            gestionPage.innerHTML = `
+    <div>
+        <h2>Gestion de vos cookies</h2>
+        <p>Options pour gérer les cookies :</p>
+        <ul>
+            <li>
+                Cookie à des fins de fonctionnement du site (Obligatoire)
+                <div class="cookie-options">
+                    <button class="accept-btn" onclick="acceptCookie(this, 'fonctionnement')">Accepter</button>
+                    <button class="refuse-btn" onclick="refuseCookie(this, 'fonctionnement')">Refuser</button>
+                </div>
+            </li>
+            <li>
+                Cookie à des fins d'analyses statistiques
+                <div class="cookie-options">
+                    <button class="accept-btn" onclick="acceptCookie(this, 'statistiques')">Accepter</button>
+                    <button class="refuse-btn" onclick="refuseCookie(this, 'statistiques')">Refuser</button>
+                </div>
+            </li>
+            <li>
+                Cookies à des fins de personnalisation de l'expérience FlexiBank
+                <div class="cookie-options">
+                    <button class="accept-btn" onclick="acceptCookie(this, 'personnalisation')">Accepter</button>
+                    <button class="refuse-btn" onclick="refuseCookie(this, 'personnalisation')">Refuser</button>
+                </div>
+            </li>
+            <li>
+                Cookies publicitaires et réseaux sociaux
+                <div class="cookie-options">
+                    <button class="accept-btn" onclick="acceptCookie(this, 'reseaux_sociaux')">Accepter</button>
+                    <button class="refuse-btn" onclick="refuseCookie(this, 'reseaux_sociaux')">Refuser</button>
+                </div>
+            </li>
+            <li>
+                Cookies nécessaires à l'assistance à distance par "chat"
+                <div class="cookie-options">
+                    <button class="accept-btn" onclick="acceptCookie(this, 'assistance_a_distance')">Accepter</button>
+                    <button class="refuse-btn" onclick="refuseCookie(this, 'assistance_a_distance')">Refuser</button>
+                </div>
+            </li>
+        </ul>
+        <button class="close-btn" id="close-gestion">Fermer</button>
+        <button class="validate-btn" id="validate-cookies">Valider</button>
+    </div>
+    `;
+            document.body.appendChild(gestionPage);
+
+            document.getElementById('close-gestion').addEventListener('click', function () {
+                document.body.removeChild(gestionPage);
+            });
+
+            document.getElementById('validate-cookies').addEventListener('click', function () {
+                document.getElementById('cookie-banner').style.display = 'none';
+                saveCookiePreferences();
+                document.body.removeChild(gestionPage);
+            });
+        });
+
+        function acceptCookie(button, cookieType) {
+            button.classList.add('clicked');
+            button.nextElementSibling.classList.remove('clicked');
+            setCookie(cookieType, 'accepted', 365);
+        }
+
+        function refuseCookie(button, cookieType) {
+            button.classList.add('clicked');
+            button.previousElementSibling.classList.remove('clicked');
+            setCookie(cookieType, 'refused', 365);
+        }
+
+        function saveCookiePreferences() {
+            const cookies = ['fonctionnement', 'statistiques', 'personnalisation', 'reseaux_sociaux', 'assistance_a_distance'];
+
+            cookies.forEach(cookie => {
+                const accepted = document.querySelector(`button.accept-btn[data-cookie="${cookie}"]`).classList.contains('clicked');
+                const value = accepted ? 'accepted' : 'refused';
+                setCookie(cookie, value, 365);
+            });
+        }
+
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            const cookiesAccepted = getCookie("cookies_accepted");
+            const localStorageVisited = localStorage.getItem('cookie_preferences_visited');
+            if (cookiesAccepted === "true" || localStorageVisited === "true") {
+                document.getElementById('cookie-banner').style.display = 'none';
+            } else {
+                // Vérifier les préférences individuelles de cookies
+                const cookies = ['fonctionnement', 'statistiques', 'personnalisation', 'reseaux_sociaux', 'assistance_a_distance'];
+                let allAccepted = true; // Vérifier si tous les types de cookies sont acceptés
+
+                cookies.forEach(cookie => {
+                    const cookieValue = getCookie(cookie);
+                    if (cookieValue !== 'accepted') {
+                        allAccepted = false;
+                    }
+
+                });
+
+                if (allAccepted) {
+                    document.getElementById('cookie-banner').style.display = 'none';
+                } else {
+                    document.getElementById('cookie-banner').style.display = 'block';
+                }
+
+                localStorage.setItem('cookie_preferences_visited', 'true');
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            checkCookie();
+
+            document.getElementById('newsletter-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                // Display confirmation message
+                document.getElementById('confirmation-message').style.display = 'block';
+
+                // Automatically hide the confirmation message after 3 seconds
+                setTimeout(function () {
+                    document.getElementById('confirmation-message').style.display = 'none';
+                }, 3000);
+
+                // Optionally, reset the form
+                // this.reset();
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('chat-bubble').addEventListener('click', function () {
+            // Logic to open AI assistance chat
+            window.location.href = 'chatbot.html';
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatBubble = document.getElementById('chat-bubble');
+            const messageBubble = document.createElement('div');
+            messageBubble.innerText = "assistant virutel";
+            messageBubble.style.position = 'absolute';
+            messageBubble.style.bottom = '100px';
+            messageBubble.style.position = 'fixed';
+            messageBubble.style.bottom = '110px';
+            messageBubble.style.right = '20px';
+            messageBubble.style.backgroundColor = 'grey';
+            messageBubble.style.color = 'white';
+            messageBubble.style.padding = '5px 10px';
+            messageBubble.style.borderRadius = '5px';
+            messageBubble.style.zIndex = '1003';
+            window.addEventListener('scroll', () => {
+                const rect = chatBubble.getBoundingClientRect();
+                messageBubble.style.bottom = `${window.innerHeight - rect.top + 10}px`;
+            });
+            document.body.appendChild(messageBubble);
+
+            setTimeout(() => {
+                document.body.removeChild(messageBubble);
+            }, 3000);
+        });
+    </script>
+
+    <script>
+        document.querySelector(".FlexiBankAnimation").addEventListener("click", function () {
+            if (document.querySelector(".navbar img")) return; // Check if the animation already running
+            const bonhomme = document.createElement("img");
+            bonhomme.src = "image/run.gif "; // Assurez-vous que l'image "bonhomme.png" existe dans votre répertoire d'images
+            bonhomme.style.position = "fixed";
+            bonhomme.style.left = "-70px"; // Changed to make the bonhomme appear more to the left
+            bonhomme.style.top = "30"; // Ajustez si nécessaire pour la position verticale dans la barre de navigation
+            bonhomme.style.width = "100px"; // Ajustez la taille du bonhomme selon vos besoins
+            bonhomme.style.zIndex = "-1"; // Modification pour passer derrière le logo FlexiBank et les boutons Login puis Sign up
+            document.querySelector(".navbar").appendChild(bonhomme); // Append bonhomme to the navigation bar instead of body element
+
+            let position = -70; // Initialized position to -50 to match the initial left style
+            const id = setInterval(frame, 7);
+            function frame() {
+                if (position >= window.innerWidth) {
+                    clearInterval(id);
+                    document.querySelector(".navbar").removeChild(bonhomme); // Remove bonhomme from the navigation bar
+                } else {
+                    position += 2.5;
+                    bonhomme.style.left = position + 'px';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
