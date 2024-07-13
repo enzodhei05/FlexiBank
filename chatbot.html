@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot 24h/24 7j/7</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #chat-container {
+            width: 400px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #chatbox {
+            width: 100%;
+            height: 300px;
+            border-bottom: 1px solid #ccc;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        #userInputContainer {
+            display: flex;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #userInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #sendButton {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+        }
+
+        .userMessage {
+            background-color: #e1ffc7;
+            align-self: flex-end;
+        }
+
+        .botMessage {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-container">
+        <div id="chatbox"></div>
+        <div id="userInputContainer">
+            <input type="text" id="userInput" placeholder="Tapez votre message ici..."
+                onkeydown="if(event.key === 'Enter') sendMessage()">
+            <button id="sendButton" onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+    <script>
+        const chatbox = document.getElementById('chatbox');
+
+        function createUserMessage(text) {
+            const userMessage = document.createElement('div');
+            userMessage.textContent = text;
+            userMessage.className = 'message userMessage';
+            chatbox.appendChild(userMessage);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function createBotMessage(text) {
+            const botMessage = document.createElement('div');
+            botMessage.textContent = text;
+            botMessage.className = 'message botMessage';
+            chatbox.appendChild(botMessage);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value;
+            if (message.trim()) {
+                createUserMessage(message);
+                userInput.value = '';
+                setTimeout(() => {
+                    createBotMessage("Désolé, je suis un chatbot rudimentaire et je ne peux pas répondre pour l'instant.");
+                }, 500);
+            }
+        }
+
+        createBotMessage("Bonjour je suis l'assistant virtuel de FlexiBank, comment puis-je vous aidez ?");
+    </script>
+</body>
+
+</html>

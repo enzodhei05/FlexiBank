@@ -1,0 +1,172 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Revolut Business</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .FlexiBank {
+            margin-left: 36.5px;
+            margin-top: 56px;
+            color: white;
+            size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .container h1 {
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .container input[type="email"],
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .container input[type="email"] {
+            background-color: #4F4F4F;
+            border-radius: 5px;
+        }
+
+        #continue-button {
+            border-radius: 35px;
+            background-color: blue;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            opacity: 0.5;
+            pointer-events: none;
+            width: 300;
+
+            /* Changed margin-top to adjust the top margin */
+            padding: 10px 20px;
+        }
+
+        #continue-button.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .container .alternative-login {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .container .alternative-login button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #fff;
+            border-radius: 35px;
+            background-color: #121212;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container .alternative-login button img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="FlexiBank">
+
+        <h1>
+
+            FlexiBank</h1>
+    </div>
+    <center>
+        <div class="container">
+            <h1>Renseignez votre adresse e-mail</h1>
+            <p style="color: grey;">Nous vous enverrons un code de confirmation.</p>
+            <input type="email" id="email" placeholder="Saisissez votre adresse e-mail">
+            ou
+            <br>
+            <br>
+
+            <div class="alternative-login">
+                <button>
+                    <img src="http://pluspng.com/img-png/google-logo-png-google-logo-icon-png-transparent-background-1000.png"
+                        alt="Google">
+                    Se connecter avec Google
+                </button>
+                <button>
+                    <img src="C:\Users\enzo\Downloads\apple-logo-white-clip-art-290872-removebg-preview.png"
+                        alt="Apple">
+                    Se connecter avec Apple
+                </button>
+            </div>
+        </div>
+    </center>
+    <p style="text-align: center;margin-top: 240px;"><input type="checkbox"> Me tenir au courant des offres, produits et
+        services
+        personnalisés de FlexiBank
+        Business.</p>
+    <p style="text-align: center;color: grey;">En poursuivant, vous acceptez nos <a href="conditions.html"
+            style="color:#00699B ;text-decoration: none;">
+            conditions d'utilisation</a>, nos
+        <a href="conditionscommercant.html" style="color:#00699B ;text-decoration: none;">conditions de service
+            <br>commerçant</a> , et vous
+        confirmez avoir lu et compris notre <a href="politique.html"
+            style="color:#00699B ;text-decoration: none;">politique de
+            confidentialité.</a>
+    </p>
+    <center><button id="continue-button">Continuer</button></center>
+
+    <script>
+        document.getElementById('email').addEventListener('input', function () {
+            var emailInput = this.value;
+            var continueButton = document.getElementById('continue-button');
+            if (emailInput && validateEmail(emailInput)) {
+                continueButton.classList.add('enabled');
+            } else {
+                continueButton.classList.remove('enabled');
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Redirection vers l'accueil
+        function goToHome() {
+            window.location.href = 'index.html'; // Remplacez 'index.html' par l'URL de votre page d'accueil
+        }
+    </script>
+</body>
+
+</html>

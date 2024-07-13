@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Setup Business</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header,
+        main,
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            margin-top: 0px;
+        }
+
+        main {
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        footer {
+            margin-bottom: 20px;
+        }
+
+        #profession {
+            font-size: 1.5em;
+            background-color: #212121;
+            color: white;
+            width: 500px;
+            height: 50px;
+            border: none;
+            text-align: left;
+            padding-right: 30px;
+            border-radius: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-left: 10px;
+        }
+
+        .profession-container {
+            width: 500px;
+            text-align: left;
+        }
+
+        .profession-container p,
+        .profession-container select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer select,
+        footer button a {
+            text-align: left;
+            width: 100%;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .FlexiBank {
+            margin-left: -1680px;
+            margin-top: 35px;
+            text-decoration: none;
+            color: white;
+            size: 50px;
+        }
+
+        .profession-container select {
+            background-color: #333333;
+            color: #f1f1f1;
+            border: 1px solid #555555;
+            padding: 5px;
+            margin-top: 10px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            max-height: 150px;
+            /* Adjust this value based on your needs */
+            overflow-y: auto;
+        }
+
+        .profession-container select:focus {
+            outline: none;
+            border-color: #00699B;
+        }
+
+        .profession-container p {
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            color: #bbbbbb;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div class="FlexiBank">
+
+        <h1>
+
+            FlexiBank</h1>
+    </div>
+
+    <header>
+
+
+        <h1 style="margin-left:-190px;">Legal business type</h1>
+
+
+        <p class="translation"
+            style="margin-left:-100px; font-size:smaller; font-family:Arial, Helvetica, sans-serif;margin-top: -15px;color: grey;">
+            Select the legal type or structure that best describes your business.
+            <br>This helps us set up the right account for you and your business
+        </p>
+
+        <div class="profession-container">
+
+            <p style="color: grey;">profession</p>
+            <select id="profession">
+
+                <option value="auto_entrepreneur">Auto-entrepreneur / Profession libérale</option>
+
+                <option value="artisan">Entreprise Individuelle</option>
+
+                <option value="freelancer">Société à responsabilité limitée (SARL)</option>
+
+                <option value="consultant">Société par actions simplifiée à associé unique</option>
+
+                <option value="trader">Société par actions simplifiée (SAS)</option>
+
+                <option value="lawyer">Société civile - agricole/aquacole/viticole</option>
+
+                <option value="doctor">Société civile - professionnelle (SCP)</option>
+
+                <option value="teacher">Entreprise unipersonnelle à responsabilitélimitée (EURL)</option>
+
+                <option value="engineer">Société civile - Immobilière/construction/vente (SCI)</option>
+
+                <option value="accountant">Société à responsabilité limitée à associé unique</option>
+
+                <option value="architect">Société à responsabilité limitée à capital variable</option>
+
+                <option value="nurse">Société par actions simplifiée à capital variable</option>
+
+                <option value="pharmacist">Société Anonyme</option>
+
+                <option value="dentist">Exploitation agricole à responsabilité limitée</option>
+
+                <option value="mechanic">Société coopérative de production (SCOP)</option>
+
+                <option value="electrician">Société en commandite simple (SCS)</option>
+
+                <option value="plumber">Société en nom collectif (SNC)</option>
+
+                <option value="carpenter">Société en participation</option>
+
+                <option value="chef">Société en commandite par actions (SCA)</option>
+
+            </select>
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+        <a href="confirmation.html"><button id="continue-btn"
+                style="background-color: #00699B;color: white; border-radius: 15px;border: none;font-size: 30px;width: 200px;height: 50px;">Continuer</button></a>
+
+        <br>
+
+
+    </footer>
+
+</body>
+
+
+
+</html>
